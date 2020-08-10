@@ -1,7 +1,7 @@
 <?php 
 
 require_once("../config/conexao.php");
-$pagina = 'audios';
+$pagina = 'escolaridades';
 
 $txtbuscar = @$_POST['txtbuscar'];
 
@@ -10,11 +10,7 @@ echo '
 <table class="table table-bordered table-sm mt-3 tabelas">
 	<thead class="thead-light">
 		<tr>
-			<th scope="col">Matéria</th>
-			<th scope="col">Título</th>
-			<th scope="col">Nome menu</th>
-			<th scope="col">Nível</th>
-			<th scope="col">Arquivo de Audio</th>
+			<th scope="col">Descrição</th>
 			<th scope="col" class="text-center">Ações</th>
 		</tr>
 	</thead>
@@ -32,14 +28,10 @@ echo '
 		$caminho_pag = 'index.php?acao='.$pagina.'&';
 
 	if($txtbuscar == ''){
-		$res = $pdo->query("SELECT a.*, m.nome 
-		from audios as a, materias as m 
-		where (a.materiaid = m.id) order by id desc LIMIT $limite, $itens_por_pagina");
+		$res = $pdo->query("SELECT * from escolaridade order by id desc LIMIT $limite, $itens_por_pagina");
 	}else{
 		$txtbuscar = '%'.@$_POST['txtbuscar'].'%';
-		$res = $pdo->query("SELECT a.*, m.nome  
-		from audios as a, materias as m 
-		where (a.materiaid = m.id) and (nome LIKE '$txtbuscar' or titulo LIKE '$txtbuscar') order by id desc");
+		$res = $pdo->query("SELECT * from escolaridade where descricao LIKE '$txtbuscar' order by id desc");
 
 	}
 	
@@ -47,7 +39,7 @@ echo '
 
 
 	//TOTALIZAR OS REGISTROS PARA PAGINAÇÃO
-		$res_todos = $pdo->query("SELECT * from audios");
+		$res_todos = $pdo->query("SELECT * from escolaridade");
 		$dados_total = $res_todos->fetchAll(PDO::FETCH_ASSOC);
 		$num_total = count($dados_total);
 
@@ -60,23 +52,14 @@ echo '
 			}
 
 			$id = $dados[$i]['id'];	
-			$materia = $dados[$i]['nome'];
-			$titulo = $dados[$i]['titulo'];	
-			$nomemenu = $dados[$i]['nomemenu'];	
-			$nivel = $dados[$i]['nivel'];	
-			$arquivo = $dados[$i]['audio']; 
-
+			$descricao = $dados[$i]['descricao'];
+            
 echo '
 		<tr>
-			<td>'.$materia.'</td>
-			<td>'.$titulo.'</td>
-			<td>'.$nomemenu.'</td>
-			<td>'.$nivel.'</td>
-			<td>'.$arquivo.'</td>
+			<td>'.$descricao.'</td>
 			<td class="text-center">
 				<a href="index.php?acao='.$pagina.'&funcao=editar&id='.$id.'" title="Alterar dados"><i class="fa fa-edit fa-lg text-info"></i></a>
 				<a href="index.php?acao='.$pagina.'&funcao=excluir&id='.$id.'" title="Excluir dados"><i class="fa fa-trash fa-lg text-danger"></i></a>
-				<a href="index.php?acao='.$pagina.'&funcao=ouvir&id='.$id.'" title="Ouvir áudio"><i class="fas fa-play fa-lg text-success"></i></a>
 			</td>
 		</tr>';
 

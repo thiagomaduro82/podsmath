@@ -183,6 +183,14 @@ if(!isset($acao)){
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="index.php?acao=escolaridades" class="nav-link">
+              <i class="nav-icon fas fa-school"></i>
+              <p>
+                Escolaridades
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
