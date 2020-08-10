@@ -246,6 +246,46 @@ if(@$_GET['funcao'] == 'excluir' && @$item_paginado == ''){
 
 <script>$('#modal-deletar').modal("show");</script>
 
+<!--CHAMADA DA MODAL OUVIR -->
+<?php 
+if(@$_GET['funcao'] == 'ouvir' && @$item_paginado == ''){ 
+	$id = $_GET['id'];
+	?>
+
+	<div class="modal" id="modal-ouvir" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Ouvir áudio</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body ">
+					<div class="row justify-content-center">
+						<?php
+							$res_audio = $pdo->query("SELECT * from audios where id = $id");
+							$dados_audio = $res_audio->fetchAll(PDO::FETCH_ASSOC);
+							$tocar = "audios".DIRECTORY_SEPARATOR.$dados_audio[0]['audio'];
+						?>
+						<audio controls>
+							<source src="<?=$tocar?>" type="audio/ogg">
+							Seu navegador não suporta áudio tag.
+						</audio>
+					</div>			
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-cancelar-excluir">Cancelar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+<?php } ?>
+
+<script>$('#modal-ouvir').modal("show");</script>
+
 <!--MASCARAS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
 <script src="js/mascaras.js"></script>

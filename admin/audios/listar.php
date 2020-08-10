@@ -68,14 +68,15 @@ echo '
 
 echo '
 		<tr>
-			<td>'.$materia.'</td>
-			<td>'.$titulo.'</td>
-			<td>'.$nomemenu.'</td>
-			<td>'.$nivel.'</td>
+			<td>'.utf8_decode($materia).'</td>
+			<td>'.utf8_decode($titulo).'</td>
+			<td>'.utf8_decode($nomemenu).'</td>
+			<td>'.utf8_decode($nivel).'</td>
 			<td>'.$arquivo.'</td>
 			<td class="text-center">
 				<a href="index.php?acao='.$pagina.'&funcao=editar&id='.$id.'" title="Alterar dados"><i class="fa fa-edit fa-lg text-info"></i></a>
 				<a href="index.php?acao='.$pagina.'&funcao=excluir&id='.$id.'" title="Excluir dados"><i class="fa fa-trash fa-lg text-danger"></i></a>
+				<a href="index.php?acao='.$pagina.'&funcao=ouvir&id='.$id.'" title="Ouvir áudio"><i class="fas fa-play fa-lg text-success"></i></a>
 			</td>
 		</tr>';
 
