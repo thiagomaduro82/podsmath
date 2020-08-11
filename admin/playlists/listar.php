@@ -1,7 +1,7 @@
 <?php 
 
 require_once("../config/conexao.php");
-$pagina = 'alunos';
+$pagina = 'playlists';
 
 $txtbuscar = @$_POST['txtbuscar'];
 
@@ -33,12 +33,12 @@ echo '
 	if($txtbuscar == ''){
 		$res = $pdo->query("SELECT p.*, a.nome, au.titulo 
 		from playlists as p, alunos as a, audios as au  
-		where (p.alunoid = a.id) and (p.audiois = au.id) order by id desc LIMIT $limite, $itens_por_pagina");
+		where (p.alunoid = a.id) and (p.audioid = au.id) order by p.id desc LIMIT $limite, $itens_por_pagina");
 	}else{
 		$txtbuscar = '%'.@$_POST['txtbuscar'].'%';
-		$res = $pdo->query("SELECT a.*, e.descricao  
-		from alunos as a, escolaridade as e 
-		where (a.escolaridadeid = e.id) and (nome LIKE '$txtbuscar' or email LIKE '$txtbuscar') order by id desc");
+		$res = $pdo->query("SELECT p.*, a.nome, au.titulo  
+		from playlists as p, alunos as a, audios as au 
+		where (p.alunoid = a.id) and (p.audioid = au.id) and (a.nome LIKE '$txtbuscar') order by p.id desc");
 
 	}
 	
@@ -46,7 +46,7 @@ echo '
 
 
 	//TOTALIZAR OS REGISTROS PARA PAGINAÇÃO
-		$res_todos = $pdo->query("SELECT * from alunos");
+		$res_todos = $pdo->query("SELECT * from playlists");
 		$dados_total = $res_todos->fetchAll(PDO::FETCH_ASSOC);
 		$num_total = count($dados_total);
 
@@ -59,19 +59,17 @@ echo '
 			}
 
 			$id = $dados[$i]['id'];	
-			$nome = $dados[$i]['nome'];
-			$email = $dados[$i]['email'];	
-			$datanascimento = date("d/m/Y", strtotime($dados[$i]['datanascimento']));	
-			$sexo = $dados[$i]['sexo'];	
-			$escolaridade = $dados[$i]['descricao'];			
-
+			$aluno = $dados[$i]['nome'];
+			$audio = $dados[$i]['titulo'];	
+			$data = date("d/m/Y", strtotime($dados[$i]['createdat']));	
+			$alteracao = date("d/m/Y", strtotime($dados[$i]['updatedat']));	
+			
 echo '
 		<tr>
-			<td>'.$nome.'</td>
-			<td>'.$email.'</td>
-			<td>'.$datanascimento.'</td>
-			<td>'.$sexo.'</td>
-			<td>'.$escolaridade.'</td>
+			<td>'.$aluno.'</td>
+			<td>'.$audio.'</td>
+			<td>'.$data.'</td>
+			<td>'.$alteracao.'</td>
 			<td class="text-center">
 				<a href="index.php?acao='.$pagina.'&funcao=editar&id='.$id.'" title="Alterar dados"><i class="fa fa-edit fa-lg text-info"></i></a>
 				<a href="index.php?acao='.$pagina.'&funcao=excluir&id='.$id.'" title="Excluir dados"><i class="fa fa-trash fa-lg text-danger"></i></a>
