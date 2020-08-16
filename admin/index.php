@@ -206,10 +206,10 @@ if(!isset($acao)){
   <!-- /.content-wrapper -->
 
   <!-- Main Footer -->
-  <footer class="main-footer">
+  <footer class="main-footer text-maroon">
     <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-      Anything you want
+    <div class="float-right d-none d-sm-inline text-success">
+      Jamais desista dos seus sonhos.
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2020 | Podsmath.</strong> All rights reserved.

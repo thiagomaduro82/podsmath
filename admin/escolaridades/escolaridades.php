@@ -9,6 +9,16 @@ if(empty($_SESSION["usuario"])){
 $pagina = "escolaridades";
 
 ?>
+<!-- Content Header (Page header) -->
+<div class="content-header">
+	<div class="container-fluid">
+		<div class="row justify-content-center m-0 p-0">
+			<div class="col-md-6 col-ms-12">
+			<h3 class="m-0 text-maroon"><i class="nav-icon fas fa-school mr-3"></i>Escolaridade</h3>
+			</div><!-- /.col -->
+		</div><!-- /.row -->
+	</div><!-- /.container-fluid -->
+</div>
 <div class="row justify-content-center m-0 p-0">
 	<div class="col-md-6 col-ms-12 ">
 		<div class="card card-primary card-outline m-3 shadow">

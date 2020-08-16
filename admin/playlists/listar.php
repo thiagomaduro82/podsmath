@@ -71,8 +71,7 @@ echo '
 			<td>'.$data.'</td>
 			<td>'.$alteracao.'</td>
 			<td class="text-center">
-				<a href="index.php?acao='.$pagina.'&funcao=editar&id='.$id.'" title="Alterar dados"><i class="fa fa-edit fa-lg text-info"></i></a>
-				<a href="index.php?acao='.$pagina.'&funcao=excluir&id='.$id.'" title="Excluir dados"><i class="fa fa-trash fa-lg text-danger"></i></a>
+				<a href="index.php?acao='.$pagina.'&funcao=visualizar&id='.$id.'" title="Visualizar dados"><i class="far fa-list-alt fa-lg text-info"></i></a>
 			</td>
 		</tr>';
 
