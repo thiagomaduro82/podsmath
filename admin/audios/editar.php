@@ -3,23 +3,21 @@
 require_once("../config/conexao.php");
 
 $id = $_POST['id'];
-$nome = $_POST['nome'];
-$email = $_POST['email'];
-$senha = $_POST['senha'];
-$escolaridadeid = $_POST['escolaridadeid'];
-$datanascimento = $_POST['datanascimento'];
-$sexo = $_POST['sexo'];
+$materiaid = $_POST['materiaid'];
+$titulo = $_POST['titulo'];
+$assunto = $_POST['assunto'];
+$nivel = $_POST['nivel'];
+$nomemenu = $_POST['nomemenu'];
 $alteradoem = date("Y-m-d H:i:s");
 
-$res = $pdo->prepare("UPDATE alunos set nome = :nome,  email = :email, senha = :senha, updatedat = :alteradoem, escolaridadeid = :escolaridadeid, datanascimento = :datanascimento, sexo = :sexo where id = :id ");
+$res = $pdo->prepare("UPDATE audios set materiaid = :materiaid, titulo = :titulo, assunto = :assunto, updatedat = :alteradoem, nivel = :nivel, nomemenu = :nomemenu where id = :id ");
 
-$res->bindValue(":nome", $nome);
-$res->bindValue(":email", $email);
-$res->bindValue(":senha", $senha);
+$res->bindValue(":materiaid", $materiaid);
+$res->bindValue(":titulo", $titulo);
+$res->bindValue(":assunto", $assunto);
+$res->bindValue(":nivel", $nivel);
+$res->bindValue(":nomemenu", $nomemenu);
 $res->bindValue(":alteradoem", $alteradoem);
-$res->bindValue(":escolaridadeid", $escolaridadeid);
-$res->bindValue(":datanascimento", $datanascimento);
-$res->bindValue(":sexo", $sexo);
 $res->bindValue(":id", $id);
 
 $res->execute();

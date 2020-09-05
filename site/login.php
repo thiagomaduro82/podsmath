@@ -14,10 +14,6 @@
             <input class="form-check-input" type="radio" name="opcao" id="exampleRadios1" value="C">
                 <label for="cadastrar" style="color: #FF1493;" class="form-check-label">Não sou cadastrado.</label>
             </div>
-            <div class="form-check">              
-            <input class="form-check-input" type="radio" name="opcao" id="exampleRadios2" value="E">
-                <label for="cadastrar" style="color: #FF1493;" class="form-check-label">Esqueci minha senha.</label>
-            </div>
             <div class="form-group mt-4">
                 <button type="submit" class="btn btn-primary form-control">Enviar</button>
                 <button type="reset" class="btn btn-info form-control mt-4">Limpar</button>

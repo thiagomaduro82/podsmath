@@ -33,7 +33,7 @@ if(!isset($acao)){
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <ul class="navbar-nav">
                     <a class="nav-item nav-link " href="index.php?acao=login">Área do Aluno</a>
-                    <a class="nav-item nav-link " href="#">Fale conosco</a>
+                    
                     <a class="nav-item nav-link " href="admin/index.php">Administração</a>
                 </ul>
             </div>

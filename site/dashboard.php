@@ -6,7 +6,7 @@
             <div class="card-body p-3 ">
                 <h1><i class="fa fa-play-circle-o fa-5x text-primary" aria-hidden="true"></i></h1>
                 <br/>
-                <h6>ÁUDIO INTRODUTÓRIO À IDÉIA E OBJETIVOS DO PROJETO.</h6>
+                <h6>ÁUDIO INTRODUTÓRIO - IDEIA E OBJETIVOS DO PROJETO.</h6>
                 
                 <audio controls class="p-2">
                     <source src="quemsomos.mp4" type="audio/mp4">
@@ -22,7 +22,7 @@
             <div class="card-body p-3 ">
                 <h1><i class="fa fa-play-circle-o fa-5x text-primary" aria-hidden="true"></i></h1>
                 <br/>
-                <h6>ÁUDIO INTRODUTÓRIO AOS MÉTODOS PROPOSTOS E AOS CONTEÚDOS ABORDADOS.</h6>
+                <h6>ÁUDIO INTRODUTÓRIO - MÉTODOS PROPOSTOS E CONTEÚDOS ABORDADOS.</h6>
                 <audio controls class="p-2">
                     <source src="introducao.mp4" type="audio/mp4">
                     Seu navegador não suporta áudio tag.

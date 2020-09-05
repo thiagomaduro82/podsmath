@@ -6,9 +6,9 @@ $email = $_POST["email"];
 $senha = $_POST["senha"];
 $opcao = @$_POST["opcao"];
 
-if(empty($email) || empty($senha))
+if((empty($email) || empty($senha)) && empty($opcao))
 {
-    echo "<script language='javascript'>window.location='login.php'</script>";
+    echo "<script language='javascript'>window.location='../index.php?acao=login'</script>";
 } else {
     if(!isset($opcao)){
         $res = $pdo->prepare("SELECT * FROM alunos where email = :email and senha = :senha ");

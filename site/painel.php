@@ -24,20 +24,25 @@ $materias = $res_mat->fetchAll(PDO::FETCH_ASSOC);
 <div class="row mt-4">
     <div class="col-md-4 col-sm-12">
         <?php
-            for($i = 0; $i < count($materias); $i++){
-                echo "<h3 id='texto-lista'>".$materias[$i]['nomemenu']."</h3>";
-                echo "<ul class='list-group list-group-flush'>";
-                $materia = $materias[$i]['id'];
-                $res_audios = $pdo->query("select * from audios where materiaid = $materia order by id");
-                $audios = $res_audios->fetchAll(PDO::FETCH_ASSOC);
-                for($j = 0; $j < count($audios); $j++){
-                    echo "<li class='list-group-item'>".
-                    "<a id='link-site' href='index.php?acao=painel&audio=".$audios[$j]["id"]."'>"
-                    .$audios[$j]['nomemenu']."</a></li>";
-                }
-                echo "</ul>";
-            }
-        ?>
+            for($i = 0; $i < count($materias); $i++){ ?>
+                    <p>
+                    <a class="btn btn-danger btn-lg w-100 text-left" data-toggle="collapse" href="#item<?=$i?>" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <?=$materias[$i]['nomemenu']?>
+                    </a>
+                    </p>
+                    <div class="collapse mb-4" id="item<?=$i?>">
+                        <div class="card card-body">
+                            <?php
+                            $materia = $materias[$i]['id'];
+                            $res_audios = $pdo->query("select * from audios where materiaid = $materia order by id");
+                            $audios = $res_audios->fetchAll(PDO::FETCH_ASSOC);
+                            for($j = 0; $j < count($audios); $j++){ ?>
+                                <a class="dropdown-item px-0" href="index.php?acao=painel&audio='<?=$audios[$j]["id"]?>'"><?=$audios[$j]['nomemenu']?></a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                
+            <?php } ?>
     </div>
     <div class="col-md-8 col-sm-12 text-center text-white">
             <?php

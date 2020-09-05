@@ -166,13 +166,13 @@ $pagina = "audios";
 								<div class="col-md-6 col-sm-12">
 									<div class="form-group">
 										<label for="nivel">Nível</label>
-										<input type="text" class="form-control" id="nivel" name="nivel" required value="<?php echo @$senha ?>">
+										<input type="text" class="form-control" id="nivel" name="nivel" required value="<?php echo @$nivel ?>">
 									</div>
 								</div>
 								<div class="col-md-6 col-sm-12">
 									<div class="form-group">
 										<label for="nomemenu">Nome menu</label>
-										<input type="text" class="form-control" id="nomemenu" name="nomemenu" required value="<?php echo @$senha ?>">
+										<input type="text" class="form-control" id="nomemenu" name="nomemenu" required value="<?php echo @$nomemenu ?>">
 									</div>
 								</div>
 							</div>
@@ -184,14 +184,16 @@ $pagina = "audios";
 									</div>
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-md-12 col-sm-12">
-									<div class="form-group">
-										<label for="fileupload">Arquivo de Áudio</label>
-										<input type="file" class="form-control" name="fileupload" id="fileupload">
+							<?php if(@$_GET['funcao'] != 'editar'){ ?>
+								<div class="row">
+									<div class="col-md-12 col-sm-12">
+										<div class="form-group">
+											<label for="fileupload">Arquivo de Áudio</label>
+											<input type="file" class="form-control" name="fileupload" id="fileupload">
+										</div>
 									</div>
 								</div>
-							</div>
+							<?php } ?>
 							<div id="mensagem" class="">
 								<!--Aqui entra as mensagens via Ajax-->
 							</div>
